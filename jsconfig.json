@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    // paths配置项工作时依赖于baseUrl的设置，因为别名的解析是基于baseUrl的路径进行的。
     "paths": {
       "@/*": ["./*"]
     }
   }
 }
+

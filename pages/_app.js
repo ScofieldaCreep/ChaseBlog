@@ -6,7 +6,7 @@ _app.js
 */
 
 import "../styles/globals.css";
-
+import "bulma/css/bulma.min.css";
 // pageProps 是每个页面的初始化属性， Component 是当前页面的组件
 function MyApp({ Component, pageProps }) {
   console.log(Component);
