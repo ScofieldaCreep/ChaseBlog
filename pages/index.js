@@ -5,12 +5,14 @@ index.js
 特定页面: 与_app.js不同，index.js只关心自己的布局和逻辑，不会影响到其他页面。
 */
 import Layout from "@/components/Layout";
-import Navbar from "@/components/Navbar";
 import ResourceHighlight from "components/ResourceHighlight";
 import Newsletter from "components/Newsletter";
 import ResourceList from "components/ResourceList";
 import Footer from "components/Footer";
 
+// CORS: 跨域资源共享（CORS）是一种机制，它使用额外的 HTTP 头来告诉浏览器，允许一个 Web 服务器访问一个来源（协议 + 域名 + 端口）的服务器上的指定的资源。
+// CORS 全称是"跨域资源共享"（Cross-origin resource sharing）。
+// 前端代码
 function Home({ resources }) {
   return (
     <div>
@@ -24,10 +26,12 @@ function Home({ resources }) {
   );
 }
 
+// 服务器端代码
 // async: 用于定义一个异步函数，它返回一个Promise对象。
 export async function getServerSideProps() {
-  const resData = await fetch("http://localhost:3000/api/resources");
+  const resData = await fetch("http://localhost:3001/api/resources");
   const data = await resData.json();
+  console.log(data);
   return {
     props: {
       resources: data,
