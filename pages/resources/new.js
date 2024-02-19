@@ -16,7 +16,7 @@ const ResourceCreate = () => {
     // fetch 和 post 关系： fetch 是 get 和 post 的结合体
     axios
       .post("/api/resources", form)
-      .then(() => {})
+      .then((res) => alert(res?.data))
       .catch((err) => {
         alert(err?.response?.data || "Some error occurred!");
       });
