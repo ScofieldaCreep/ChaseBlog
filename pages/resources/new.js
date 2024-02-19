@@ -12,6 +12,10 @@ const DEFAULT_DATA = {
 const ResourceCreate = () => {
   const [form, setForm] = useState(DEFAULT_DATA);
 
+  const submitForm = () => {
+    alert(JSON.stringify(form));
+  };
+
   return (
     <Layout>
       <div className="container">
@@ -78,7 +82,13 @@ const ResourceCreate = () => {
                 </div>
                 <div className="field is-grouped">
                   <div className="control">
-                    <button className="button is-link">Submit</button>
+                    <button
+                      type="button"
+                      onClick={submitForm}
+                      className="button is-link"
+                    >
+                      Submit
+                    </button>
                   </div>
                   <div className="control">
                     <button className="button is-link is-light">Cancel</button>
