@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react"; // 确保导入了React，如果您使用的是React 17或更高版本并使用了新的JSX转换，则可以省略这一行。
+import Link from "next/link";
 
 const ResourceList = ({ resources }) => {
   const renderResources = () =>
@@ -9,6 +10,9 @@ const ResourceList = ({ resources }) => {
           <h2 className="subtitle is-5 has-text-grey">{resource.createdAt}</h2>
           <h1 className="title has-text-black is-3">{resource.title}</h1>
           <p className="has-text-dark">{resource.description}</p>
+          <Link href={`/resources/${resource.id}`}>
+            <button className="button is-dark">Details</button>
+          </Link>
         </div>
       </div>
     ));

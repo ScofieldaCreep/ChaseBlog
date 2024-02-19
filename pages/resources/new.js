@@ -1,6 +1,8 @@
 import Layout from "components/Layout";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
+
 const DEFAULT_DATA = {
   title: "",
   description: "",
@@ -11,12 +13,13 @@ const DEFAULT_DATA = {
 
 const ResourceCreate = () => {
   const [form, setForm] = useState(DEFAULT_DATA);
+  const router = useRouter();
 
   const submitForm = () => {
     // fetch 和 post 关系： fetch 是 get 和 post 的结合体
     axios
       .post("/api/resources", form)
-      .then((res) => alert(res?.data))
+      .then((res) => router.push("/"))
       .catch((err) => {
         alert(err?.response?.data || "Some error occurred!");
       });
