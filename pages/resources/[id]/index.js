@@ -9,6 +9,12 @@ const ResourceDetail = ({ resource }) => {
             .then((_) => location.reload())
             .catch((_) => alert("Cannot activate the resource!"));
     };
+    const completeResource = () => {
+        axios
+            .patch("/api/resources", { ...resource, status: "complete" })
+            .then((_) => location.reload())
+            .catch((_) => alert("Cannot activate the resource!"));
+    };
     return (
         <Layout>
             <section className="hero ">
@@ -40,12 +46,21 @@ const ResourceDetail = ({ resource }) => {
                                         <Link
                                             href={`/resources/${resource.id}`}
                                         >
-                                            <button
-                                                onClick={activateResource}
-                                                className="button is-success ml-3"
-                                            >
-                                                Activate
-                                            </button>
+                                            {resource.status == "active" ? (
+                                                <button
+                                                    onClick={completeResource}
+                                                    className="button is-danger ml-3"
+                                                >
+                                                    Invalidate
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    onClick={activateResource}
+                                                    className="button is-success ml-3"
+                                                >
+                                                    Activate
+                                                </button>
+                                            )}
                                         </Link>
                                     </div>
                                 </div>

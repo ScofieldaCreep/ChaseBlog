@@ -6,3 +6,5 @@ export default async function activeResource(req, res) {
     const resource = axiosRes.data;
     return res.send(resource);
 }
+
+

@@ -23,3 +23,8 @@
 .active-resource .time-wrapper {
   height: 100px;
 }
+
+.active-resource .buttons-container {
+  display: flex;
+  align-items: center; /* 根据需要调整 */
+}
